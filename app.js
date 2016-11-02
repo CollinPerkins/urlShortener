@@ -6,8 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Url = require('./models/url');
-
-mongoose.connect('mongodb://localhost/url');
+var envUrlMlab = process.env.MONGOLAB_URI;
+mongoose.connect(envUrlMlab);
 
 var index = require('./routes/index');
 var shortUrl = require('./routes/shortUrl');

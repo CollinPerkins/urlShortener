@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   var url = req.originalUrl.slice(1);
   Url.findOne({_id: url}, function(err,obj) {
     if(err){
-      res.render(err);
+      res.send(err);
     } else {
       res.redirect(obj.url);
     }

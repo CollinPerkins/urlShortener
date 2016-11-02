@@ -12,8 +12,9 @@ router.get('/', function(req, res, next) {
   if (url.match(regex) && (url.indexOf("http://") !== -1 || url.indexOf("https://")  !== -1)) {
     Url.create({url: url}, function(err, newItem){
       console.log(newItem);
+      var resObject = {"original_url":url,"short_url":fullUrl + '/' + newItem._id}
       res.send(
-          (err === null) ? {"original_url":url,"short_url":fullUrl + '/' + newItem._id} : { msg: err }
+        resObject
       );
    });
  } else {
